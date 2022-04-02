@@ -38,12 +38,14 @@ const Home: NextPage = () => {
 
       <main>
         <h1>MLB Best Players</h1>
-        {data?.map((player: IPlayerData, index: number) => (
-          <div key={index}>
-            <Image src={player.playerImg} width={200} height={200} />
-            <h1>{player.name}</h1>
-          </div>
-        ))}
+        <ul className="grid gap-4 grid-cols-3 grid-rows-3">
+          {data?.map((player: IPlayerData, index: number) => (
+            <div key={index}>
+              <Image src={player.playerImg} width={200} height={200} />
+              <h1>{player.name}</h1>
+            </div>
+          ))}
+        </ul>
       </main>
     </div>
   );
