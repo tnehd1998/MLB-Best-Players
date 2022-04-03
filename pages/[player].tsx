@@ -1,17 +1,35 @@
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import React from "react";
 
-const PlayerPage = () => {
+interface IProps {
+  player: string;
+}
+
+const PlayerPage: NextPage<IProps> = ({ player }) => {
   return (
-    <div className="rounded-lg border-2 border-black hover:scale-110 cursor-pointer transition-all">
-      <Image
-        className="rounded-t-lg"
-        src={player.playerImg}
-        width={200}
-        height={300}
-      />
-      <h1>{player.name}</h1>
+    <div>
+      <h1>{player}</h1>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = (context) => {
+  const { params } = context;
+  let player;
+  if (params) {
+    player = params.player;
+  }
+
+  return {
+    props: { player },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
 };
 
 export default PlayerPage;
