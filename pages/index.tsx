@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import PlayerThumbnail from "../components/PlayerThumbnail";
 
 interface IPlayerData {
   name: string;
@@ -40,18 +41,11 @@ const Home: NextPage = () => {
         <h1>MLB Top 100 FA Players</h1>
         <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
           {data?.map((player: IPlayerData, index: number) => (
-            <div
-              className="rounded-lg border-2 border-black hover:scale-110 cursor-pointer transition-all"
+            <PlayerThumbnail
               key={index}
-            >
-              <Image
-                className="rounded-t-lg"
-                src={player.playerImg}
-                width={200}
-                height={300}
-              />
-              <h1>{player.name}</h1>
-            </div>
+              playerImg={player.playerImg}
+              name={player.name}
+            />
           ))}
         </ul>
       </main>
