@@ -36,12 +36,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>MLB Best Players</h1>
-        <ul className="grid gap-4 grid-cols-3 grid-rows-3">
+      <main className="flex flex-col justify-center items-center">
+        <h1>MLB Top 100 FA Players</h1>
+        <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
           {data?.map((player: IPlayerData, index: number) => (
-            <div key={index}>
-              <Image src={player.playerImg} width={200} height={200} />
+            <div
+              className="rounded-lg border-2 border-black hover:scale-110 cursor-pointer transition-all"
+              key={index}
+            >
+              <Image
+                className="rounded-t-lg"
+                src={player.playerImg}
+                width={200}
+                height={300}
+              />
               <h1>{player.name}</h1>
             </div>
           ))}
