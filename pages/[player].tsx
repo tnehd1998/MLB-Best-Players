@@ -20,6 +20,10 @@ interface IProps {
 }
 
 const PlayerPage: NextPage<IProps> = ({ player }) => {
+  if (!player) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <h1>{player.name}</h1>
@@ -38,9 +42,8 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   if (params) {
-    const playerName = params.player;
+    const playerName = params.player as string;
     const player = await getCertainPlayer(playerName);
-
     return {
       props: { player },
     };

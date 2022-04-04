@@ -17,13 +17,19 @@ export const getAllPlayers = async () => {
   return response.data;
 };
 
-export const getCertainPlayer = async (
-  playerName: string | string[] | undefined
-) => {
+const combinedName = (name: string) => {
+  return name.split(" ").join("");
+};
+
+export const getCertainPlayer = async (playerName: string) => {
   const players = await getAllPlayers();
+
   const certainPlayer = players.find(
-    (player: IPlayerData) => player.name === playerName
+    (player: IPlayerData) =>
+      combinedName(player.name) === combinedName(playerName)
   );
 
   return certainPlayer;
+
+  return;
 };

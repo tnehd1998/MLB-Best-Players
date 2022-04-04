@@ -21,6 +21,10 @@ interface IProps {
 }
 
 const Home: NextPage<IProps> = ({ players }) => {
+  const combineName = (name: string) => {
+    return name.split(" ").join("");
+  };
+
   return (
     <div>
       <Head>
@@ -32,7 +36,7 @@ const Home: NextPage<IProps> = ({ players }) => {
         <h1>MLB Top 100 FA Players</h1>
         <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
           {players?.map((player: IPlayerData, index: number) => (
-            <Link key={index} href={`/${player.name}`}>
+            <Link key={index} href={`/${combineName(player.name)}`}>
               <a>
                 <PlayerThumbnail
                   playerImg={player.playerImg}
