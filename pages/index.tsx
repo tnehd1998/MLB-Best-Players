@@ -1,4 +1,5 @@
 import axios from "axios";
+import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import PlayerThumbnail from "../components/PlayerThumbnail";
@@ -19,7 +20,7 @@ interface IProps {
   players: IPlayerData[];
 }
 
-const Home = ({ players }: IProps) => {
+const Home: NextPage<IProps> = ({ players }) => {
   return (
     <div>
       <Head>
@@ -31,10 +32,9 @@ const Home = ({ players }: IProps) => {
         <h1>MLB Top 100 FA Players</h1>
         <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
           {players?.map((player: IPlayerData, index: number) => (
-            <Link href={`/${player.name}`}>
+            <Link key={index} href={`/${player.name}`}>
               <a>
                 <PlayerThumbnail
-                  key={index}
                   playerImg={player.playerImg}
                   name={player.name}
                 />
