@@ -2,6 +2,7 @@ import axios from "axios";
 import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../components/Layout";
 import PlayerThumbnail from "../components/PlayerThumbnail";
 
 interface IPlayerData {
@@ -26,14 +27,13 @@ const Home: NextPage<IProps> = ({ players }) => {
   };
 
   return (
-    <div>
+    <Layout title="MLB Top 100 FA Players">
       <Head>
         <title>MLB | Top 100</title>
         <meta name="description" content="MLB Top100 FA Players" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-center items-center">
-        <h1>MLB Top 100 FA Players</h1>
         <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
           {players?.map((player: IPlayerData, index: number) => (
             <Link key={index} href={`/${combineName(player.name)}`}>
@@ -47,7 +47,7 @@ const Home: NextPage<IProps> = ({ players }) => {
           ))}
         </ul>
       </main>
-    </div>
+    </Layout>
   );
 };
 
