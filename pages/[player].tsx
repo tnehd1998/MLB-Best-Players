@@ -7,21 +7,29 @@ import { getCertainPlayer } from "../lib/players";
 interface IPlayerData {
   name: string;
   team: string;
-  years: number;
-  SignedAge: number;
-  averageValue: string;
-  totalValue: string;
-  period: string;
   position: string;
+  SignedAge?: number;
+  years?: number;
+  period?: string;
+  averageValue?: string;
+  totalValue?: string;
   playerImg: string;
   playerVideo: string;
 }
 
 interface IProps {
   player: IPlayerData;
+  isTopPlayer: boolean;
 }
 
 const PlayerPage: NextPage<IProps> = ({ player }) => {
+  const salaryPerGame = (money: string) => {
+    const moneyToNumber = Number(money.replace(/[^0-9.-]+/g, ""));
+    const perGame = Math.round(moneyToNumber / 162);
+
+    return "$" + perGame.toLocaleString();
+  };
+
   if (!player) {
     return <div>Loading...</div>;
   }
@@ -58,11 +66,15 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
           <p className="border-b-2 border-b-slate-400">
             총 계약 금액 : {player.totalValue}
           </p>
+          {player.averageValue && (
+            <p className="border-b-2 border-b-slate-400">
+              한 경기당 수령 금액 : {salaryPerGame(player.averageValue)}
+            </p>
+          )}
         </div>
       </div>
       <div className="flex flex-col justify-center text-center py-5 ">
-        <h1>{player.name} 얼마나 잘하길래?</h1>
-        <h1>TMI : 치킨 한마리 === $15</h1>
+        <h1>{player.name}는 얼마나 잘하는 선수일까?</h1>
       </div>
       <div className="flex justify-center content-center">
         <iframe src={player.playerVideo} width="600" height="360" />
