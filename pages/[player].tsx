@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import React from "react";
 import Layout from "../components/Layout";
-import { getCertainPlayer } from "../lib/players";
+import { getCertainTopPlayer } from "../lib/players";
 
 interface IPlayerData {
   name: string;
@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   if (params) {
     const playerName = params.player as string;
-    const player = await getCertainPlayer(playerName);
+    const player = await getCertainTopPlayer(playerName);
     return {
       props: { player },
     };

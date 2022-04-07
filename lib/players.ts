@@ -12,17 +12,17 @@ interface IPlayerData {
   playerImg: string;
 }
 
-export const getAllPlayers = async () => {
-  const response = await axios("http://localhost:3000/api/ranking");
-  return response.data;
-};
-
 export const combinedName = (name: string) => {
   return name.split(" ").join("");
 };
 
-export const getCertainPlayer = async (playerName: string) => {
-  const players = await getAllPlayers();
+export const getAllTopPlayers = async () => {
+  const response = await axios("http://localhost:3000/api/ranking");
+  return response.data;
+};
+
+export const getCertainTopPlayer = async (playerName: string) => {
+  const players = await getAllTopPlayers();
 
   const certainPlayer = players.find(
     (player: IPlayerData) =>
@@ -30,6 +30,20 @@ export const getCertainPlayer = async (playerName: string) => {
   );
 
   return certainPlayer;
+};
 
-  return;
+export const getAllProspectPlayers = async () => {
+  const response = await axios("http://localhost:3000/api/prospect");
+  return response.data;
+};
+
+export const getCertainProspectPlayer = async (playerName: string) => {
+  const players = await getAllProspectPlayers();
+
+  const certainPlayer = players.find(
+    (player: IPlayerData) =>
+      combinedName(player.name) === combinedName(playerName)
+  );
+
+  return certainPlayer;
 };
