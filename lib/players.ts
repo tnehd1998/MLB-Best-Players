@@ -17,7 +17,7 @@ export const getAllPlayers = async () => {
   return response.data;
 };
 
-const combinedName = (name: string) => {
+export const combinedName = (name: string) => {
   return name.split(" ").join("");
 };
 
