@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import React from "react";
 import Layout from "../components/Layout";
-import { getCertainTopPlayer } from "../lib/players";
+import { getCertainProspectPlayer, getCertainTopPlayer } from "../lib/players";
 
 interface IPlayerData {
   name: string;
@@ -13,13 +13,14 @@ interface IPlayerData {
   period?: string;
   averageValue?: string;
   totalValue?: string;
+  currentAge?: number;
+  leftYear?: number;
   playerImg: string;
   playerVideo: string;
 }
 
 interface IProps {
   player: IPlayerData;
-  isTopPlayer: boolean;
 }
 
 const PlayerPage: NextPage<IProps> = ({ player }) => {
@@ -51,25 +52,38 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
           <p className="border-b-2 border-b-slate-400">
             포지션 : {player.position}
           </p>
-          <p className="border-b-2 border-b-slate-400">
-            계약 당시 나이 : {player.SignedAge}
-          </p>
-          <p className="border-b-2 border-b-slate-400">
-            계약 기간 : {player.years}
-          </p>
-          <p className="border-b-2 border-b-slate-400">
-            계약 년도 : {player.period}
-          </p>
-          <p className="border-b-2 border-b-slate-400">
-            연평균 금액 : {player.averageValue}
-          </p>
-          <p className="border-b-2 border-b-slate-400">
-            총 계약 금액 : {player.totalValue}
-          </p>
-          {player.averageValue && (
-            <p className="border-b-2 border-b-slate-400">
-              한 경기당 수령 금액 : {salaryPerGame(player.averageValue)}
-            </p>
+          {player.SignedAge ? (
+            <>
+              <p className="border-b-2 border-b-slate-400">
+                계약 당시 나이 : {player.SignedAge}
+              </p>
+              <p className="border-b-2 border-b-slate-400">
+                계약 기간 : {player.years}
+              </p>
+              <p className="border-b-2 border-b-slate-400">
+                계약 년도 : {player.period}
+              </p>
+              <p className="border-b-2 border-b-slate-400">
+                연평균 금액 : {player.averageValue}
+              </p>
+              <p className="border-b-2 border-b-slate-400">
+                총 계약 금액 : {player.totalValue}
+              </p>
+              {player.averageValue && (
+                <p className="border-b-2 border-b-slate-400">
+                  한 경기당 수령 금액 : {salaryPerGame(player.averageValue)}
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <p className="border-b-2 border-b-slate-400">
+                현재 나이 : {player.currentAge}
+              </p>
+              <p className="border-b-2 border-b-slate-400">
+                FA까지 남은 기간 : {player.leftYear}년
+              </p>
+            </>
           )}
         </div>
       </div>
@@ -87,7 +101,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   if (params) {
     const playerName = params.player as string;
-    const player = await getCertainTopPlayer(playerName);
+    const player =
+      (await getCertainTopPlayer(playerName)) ??
+      (await getCertainProspectPlayer(playerName));
     return {
       props: { player },
     };
