@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { addPlayerToLocalStorage } from "../lib/like";
 import { addPlayerToLikePage } from "../lib/players";
 
 interface IProps {
@@ -16,15 +17,8 @@ const Layout = ({ title, goBackBtn, children }: IProps) => {
     router.back();
   };
 
-  const onClickLike = async () => {
-    const currentPlayer = await addPlayerToLikePage(title);
-    const existingPlayers = localStorage.getItem("mlb-best-players");
-    const parsedExistingPlayers = JSON.parse(existingPlayers || "");
-
-    localStorage.setItem(
-      "mlb-best-players",
-      JSON.stringify([...parsedExistingPlayers, currentPlayer])
-    );
+  const onClickLike = () => {
+    addPlayerToLocalStorage(title);
   };
 
   return (
