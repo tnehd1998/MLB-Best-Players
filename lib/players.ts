@@ -47,3 +47,12 @@ export const getCertainProspectPlayer = async (playerName: string) => {
 
   return certainPlayer;
 };
+
+export const addPlayerToLikePage = async (playerName: string) => {
+  const convertedName = combinedName(playerName);
+  const playerData =
+    (await getCertainTopPlayer(convertedName)) ??
+    (await getCertainProspectPlayer(convertedName));
+
+  return playerData;
+};
