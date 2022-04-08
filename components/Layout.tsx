@@ -17,9 +17,14 @@ const Layout = ({ title, goBackBtn, children }: IProps) => {
   };
 
   const onClickLike = async () => {
-    console.log("Like", title);
-    const data = await addPlayerToLikePage(title);
-    console.log(data);
+    const currentPlayer = await addPlayerToLikePage(title);
+    const existingPlayers = localStorage.getItem("mlb-best-players");
+    const parsedExistingPlayers = JSON.parse(existingPlayers || "");
+
+    localStorage.setItem(
+      "mlb-best-players",
+      JSON.stringify([...parsedExistingPlayers, currentPlayer])
+    );
   };
 
   return (

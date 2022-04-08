@@ -1,5 +1,4 @@
 import { atom } from "recoil";
-import { recoilPersist } from "recoil-persist";
 
 interface IPlayerData {
   name: string;
@@ -16,13 +15,7 @@ interface IPlayerData {
   playerVideo: string;
 }
 
-const { persistAtom } = recoilPersist({
-  key: "mlb-best-players",
-  storage: localStorage,
-});
-
 export const likePlayerState = atom<IPlayerData[]>({
   key: "likePlayerState",
   default: [],
-  effects_UNSTABLE: [persistAtom],
 });
