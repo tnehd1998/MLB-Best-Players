@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { addPlayerToLocalStorage } from "../lib/like";
-import { addPlayerToLikePage } from "../lib/players";
+import { toggleLikePlayer } from "../lib/like";
 
 interface IProps {
   title: string;
@@ -18,7 +17,7 @@ const Layout = ({ title, goBackBtn, children }: IProps) => {
   };
 
   const onClickLike = () => {
-    addPlayerToLocalStorage(title);
+    toggleLikePlayer(title);
   };
 
   return (
