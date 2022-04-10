@@ -70,7 +70,7 @@ export const getLikePlayers = () => {
   return parsedExistingPlayers;
 };
 
-// 내일 할꺼
-// 1. localStorage 데이터에 따라 하트 색깔 바꾸기 ✅
-// 2. localStorage 데이터에 like 페이지에 나열하기
-// 3. like 선수 취소하기 ✅
+export const deleteAllLikePlayers = () => {
+  localStorage.setItem("mlb-best-players", JSON.stringify([]));
+  return location.reload();
+};

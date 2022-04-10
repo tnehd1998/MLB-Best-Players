@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import Layout from "../components/Layout";
@@ -37,6 +38,11 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
 
   return (
     <Layout title={player.name} goBackBtn={true}>
+      <Head>
+        <title>MLB | {player.name}</title>
+        <meta name="description" content={`Information about ${player.name}`} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="flex justify-evenly mx-3 p-2 rounded-lg">
         <Image
           src={player.playerImg}

@@ -30,7 +30,7 @@ const LikePage = () => {
   }, []);
 
   return (
-    <Layout title="My Favorite Players">
+    <Layout title="My Favorite Players" removeAll={true}>
       <Head>
         <title>MLB | Like</title>
         <meta name="description" content="MLB Players I Like" />

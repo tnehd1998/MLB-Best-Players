@@ -1,15 +1,20 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { isLikePlayer, toggleLikePlayer } from "../lib/like";
+import {
+  deleteAllLikePlayers,
+  isLikePlayer,
+  toggleLikePlayer,
+} from "../lib/like";
 
 interface IProps {
   title: string;
   goBackBtn?: boolean;
+  removeAll?: boolean;
   children: React.ReactNode;
 }
 
-const Layout = ({ title, goBackBtn, children }: IProps) => {
+const Layout = ({ title, goBackBtn, removeAll, children }: IProps) => {
   const [isLikedPlayer, setIsLikedPlayer] = useState(false);
   const router = useRouter();
 
@@ -20,6 +25,12 @@ const Layout = ({ title, goBackBtn, children }: IProps) => {
   const onClickLike = () => {
     toggleLikePlayer(title);
     setIsLikedPlayer(!isLikedPlayer);
+  };
+
+  const onClickDeleteAll = () => {
+    if (window.confirm("모든 선수들을 삭제하시겠습니까?")) {
+      return deleteAllLikePlayers();
+    }
   };
 
   useEffect(() => {
@@ -62,9 +73,9 @@ const Layout = ({ title, goBackBtn, children }: IProps) => {
                   fill="currentColor"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                 </svg>
               </button>
@@ -89,6 +100,29 @@ const Layout = ({ title, goBackBtn, children }: IProps) => {
                 </svg>
               </button>
             )}
+          </>
+        )}
+        {removeAll && (
+          <>
+            <button
+              onClick={onClickDeleteAll}
+              className="absolute right-4 hover:scale-125 cursor-pointer transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
+              </svg>
+            </button>
           </>
         )}
         <span>{title}</span>
