@@ -56,3 +56,10 @@ export const addPlayerToLikePage = async (playerName: string) => {
 
   return playerData;
 };
+
+export const getAwardWinnerPlayer = async (playerType: string) => {
+  const response = await axios(
+    `http://localhost:3000/api/winner/${playerType}`
+  );
+  return response.data;
+};

@@ -207,8 +207,8 @@ const Layout = ({ title, goBackBtn, removeAll, children }: IProps) => {
             </a>
           )}
         </Link>
-        <Link href="/award">
-          {router.pathname === "/award" ? (
+        <Link href="/winner">
+          {router.pathname === "/winner" ? (
             <a className="flex flex-col items-center space-y-2 justify-center text-blue-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +229,7 @@ const Layout = ({ title, goBackBtn, removeAll, children }: IProps) => {
                   d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
                 />
               </svg>
-              <span>Award</span>
+              <span>Winner</span>
             </a>
           ) : (
             <a className="flex flex-col items-center space-y-2 justify-center hover:scale-125 cursor-pointer transition-all">
