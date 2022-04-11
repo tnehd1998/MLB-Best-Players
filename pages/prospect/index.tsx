@@ -32,14 +32,11 @@ const ProspectPage: NextPage<IProps> = ({ players }) => {
       <main className="flex flex-col justify-center items-center">
         <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
           {players?.map((player: IPlayerData, index: number) => (
-            <Link key={index} href={`/${combinedName(player.name)}`}>
-              <a>
-                <PlayerThumbnail
-                  playerImg={player.playerImg}
-                  name={player.name}
-                />
-              </a>
-            </Link>
+            <PlayerThumbnail
+              key={index}
+              playerImg={player.playerImg}
+              name={player.name}
+            />
           ))}
         </ul>
       </main>

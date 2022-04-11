@@ -75,17 +75,14 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
             {MVPPlayers?.map((player: IPlayerData, index: number) => {
               return (
                 player.year === mvpYear && (
-                  <Link key={index} href={`/${combinedName(player.name)}`}>
-                    <a>
-                      <PlayerThumbnail
-                        playerImg={player.playerImg}
-                        name={player.name}
-                        year={player.year}
-                        league={player.league}
-                        awardType="MVP"
-                      />
-                    </a>
-                  </Link>
+                  <PlayerThumbnail
+                    key={index}
+                    playerImg={player.playerImg}
+                    name={player.name}
+                    year={player.year}
+                    league={player.league}
+                    awardType="MVP"
+                  />
                 )
               );
             })}
@@ -135,17 +132,14 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
               {
                 return (
                   player.year === cyYoungYear && (
-                    <Link key={index} href={`/${combinedName(player.name)}`}>
-                      <a>
-                        <PlayerThumbnail
-                          playerImg={player.playerImg}
-                          name={player.name}
-                          year={player.year}
-                          league={player.league}
-                          awardType="Cy Young"
-                        />
-                      </a>
-                    </Link>
+                    <PlayerThumbnail
+                      key={index}
+                      playerImg={player.playerImg}
+                      name={player.name}
+                      year={player.year}
+                      league={player.league}
+                      awardType="Cy Young"
+                    />
                   )
                 );
               }
@@ -195,17 +189,14 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
             {ROYPlayers?.map((player: IPlayerData, index: number) => {
               return (
                 player.year === royYear && (
-                  <Link key={index} href={`/${combinedName(player.name)}`}>
-                    <a>
-                      <PlayerThumbnail
-                        playerImg={player.playerImg}
-                        name={player.name}
-                        year={player.year}
-                        league={player.league}
-                        awardType="ROY"
-                      />
-                    </a>
-                  </Link>
+                  <PlayerThumbnail
+                    key={index}
+                    playerImg={player.playerImg}
+                    name={player.name}
+                    year={player.year}
+                    league={player.league}
+                    awardType="ROY"
+                  />
                 )
               );
             })}

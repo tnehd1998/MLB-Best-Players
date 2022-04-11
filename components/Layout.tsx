@@ -39,7 +39,7 @@ const Layout = ({ title, goBackBtn, removeAll, children }: IProps) => {
 
   return (
     <div>
-      <header className="bg-white w-full h-24 justify-center text-3xl px-10 font-medium fixed text-gray-700 border-b top-0 flex items-center z-50">
+      <header className="bg-white w-full h-24 justify-center px-10 font-medium fixed text-gray-700 border-b top-0 flex items-center z-50 text-xl tablet:text-3xl">
         {goBackBtn && (
           <>
             <button
