@@ -51,9 +51,9 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-center items-center">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center border-b-[1px] p-10">
           <button
-            className="hover:scale-125 cursor-pointer transition-all"
+            className="hover:scale-125 cursor-pointer transition-all mr-4"
             onClick={() => onClickDecrease(mvpYear, setMvpYear)}
           >
             <svg
@@ -71,7 +71,7 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
               />
             </svg>
           </button>
-          <ul className="grid gap-4 grid-cols-2 text-center px-16 py-4">
+          <ul className="grid gap-4 grid-cols-2 text-center">
             {MVPPlayers?.map((player: IPlayerData, index: number) => {
               return (
                 player.year === mvpYear && (
@@ -91,7 +91,7 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
             })}
           </ul>
           <button
-            className="hover:scale-125 cursor-pointer transition-all"
+            className="hover:scale-125 cursor-pointer transition-all ml-4"
             onClick={() => onClickIncrease(mvpYear, setMvpYear)}
           >
             <svg
@@ -110,9 +110,9 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
             </svg>
           </button>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center border-b-[1px] p-10">
           <button
-            className="hover:scale-125 cursor-pointer transition-all"
+            className="hover:scale-125 cursor-pointer transition-all mr-4"
             onClick={() => onClickDecrease(cyYoungYear, setcyYoungYearYear)}
           >
             <svg
@@ -130,7 +130,7 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
               />
             </svg>
           </button>
-          <ul className="grid gap-4 grid-cols-2 text-center px-16 py-4">
+          <ul className="grid gap-4 grid-cols-2 text-center">
             {CYYoungPlayers?.map((player: IPlayerData, index: number) => {
               {
                 return (
@@ -152,7 +152,7 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
             })}
           </ul>
           <button
-            className="hover:scale-125 cursor-pointer transition-all"
+            className="hover:scale-125 cursor-pointer transition-all ml-4"
             onClick={() => onClickIncrease(cyYoungYear, setcyYoungYearYear)}
           >
             <svg
@@ -171,9 +171,9 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
             </svg>
           </button>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center border-black p-10">
           <button
-            className="hover:scale-125 cursor-pointer transition-all"
+            className="hover:scale-125 cursor-pointer transition-all mr-4"
             onClick={() => onClickDecrease(royYear, setRoyYear)}
           >
             <svg
@@ -191,7 +191,7 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
               />
             </svg>
           </button>
-          <ul className="grid gap-4 grid-cols-2 text-center px-16 py-4">
+          <ul className="grid gap-4 grid-cols-2 text-center">
             {ROYPlayers?.map((player: IPlayerData, index: number) => {
               return (
                 player.year === royYear && (
@@ -211,7 +211,7 @@ const WinnerPage = ({ MVPPlayers, CYYoungPlayers, ROYPlayers }: IProps) => {
             })}
           </ul>
           <button
-            className="hover:scale-125 cursor-pointer transition-all"
+            className="hover:scale-125 cursor-pointer transition-all ml-4"
             onClick={() => onClickIncrease(royYear, setRoyYear)}
           >
             <svg
