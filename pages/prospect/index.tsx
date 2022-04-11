@@ -1,11 +1,9 @@
 import axios from "axios";
 import { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import React from "react";
 import Layout from "../../components/Layout";
-import PlayerThumbnail from "../../components/PlayerThumbnail";
-import { combinedName } from "../../lib/players";
+import PlayerList from "../../components/PlayerList";
 
 interface IPlayerData {
   name: string;
@@ -30,15 +28,7 @@ const ProspectPage: NextPage<IProps> = ({ players }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-center items-center">
-        <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
-          {players?.map((player: IPlayerData, index: number) => (
-            <PlayerThumbnail
-              key={index}
-              playerImg={player.playerImg}
-              name={player.name}
-            />
-          ))}
-        </ul>
+        <PlayerList players={players} />
       </main>
     </Layout>
   );

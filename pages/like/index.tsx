@@ -1,10 +1,9 @@
+import { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
-import PlayerThumbnail from "../../components/PlayerThumbnail";
+import PlayerList from "../../components/PlayerList";
 import { getLikePlayers } from "../../lib/like";
-import { combinedName } from "../../lib/players";
 
 interface IPlayerData {
   name: string;
@@ -21,12 +20,12 @@ interface IPlayerData {
   playerVideo: string;
 }
 
-const LikePage = () => {
-  const [likePlayers, setLikePlayers] = useState<IPlayerData[]>([]);
+const LikePage: NextPage = () => {
+  const [players, setPlayers] = useState<IPlayerData[]>([]);
 
   useEffect(() => {
-    const players = getLikePlayers();
-    setLikePlayers(players);
+    const playerData = getLikePlayers();
+    setPlayers(playerData);
   }, []);
 
   return (
@@ -37,15 +36,7 @@ const LikePage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-center items-center">
-        <ul className="grid gap-4 grid-cols-4 grid-rows-3 text-center">
-          {likePlayers?.map((player: IPlayerData, index: number) => (
-            <PlayerThumbnail
-              key={index}
-              playerImg={player.playerImg}
-              name={player.name}
-            />
-          ))}
-        </ul>
+        <PlayerList players={players} />
       </main>
     </Layout>
   );
