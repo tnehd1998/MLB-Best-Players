@@ -43,14 +43,16 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
         <meta name="description" content={`Information about ${player.name}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex justify-evenly mx-3 p-2 rounded-lg">
-        <Image
-          src={player.playerImg}
-          className="p-12 border border-slate-700 border-solid rounded-xl"
-          width={200}
-          height={300}
-        />
-        <div className="text-left  text-xl flex flex-col justify-evenly">
+      <div className="flex justify-center mx-3 p-2 rounded-lg text-sm tablet:text-xl">
+        <div className="mr-4">
+          <Image
+            src={player.playerImg}
+            className="p-12 border border-slate-700 border-solid rounded-xl"
+            width={200}
+            height={300}
+          />
+        </div>
+        <div className="text-left flex flex-col justify-evenly">
           <p className="border-b-2 border-b-slate-400">이름 : {player.name}</p>
           <p className="border-b-2 border-b-slate-400">
             소속 팀 : {player.team}
@@ -73,11 +75,11 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
                 연평균 금액 : {player.averageValue}
               </p>
               <p className="border-b-2 border-b-slate-400">
-                총 계약 금액 : {player.totalValue}
+                계약 금액 : {player.totalValue}
               </p>
               {player.averageValue && (
                 <p className="border-b-2 border-b-slate-400">
-                  한 경기당 수령 금액 : {salaryPerGame(player.averageValue)}
+                  한 경기당 금액 : {salaryPerGame(player.averageValue)}
                 </p>
               )}
             </>
@@ -93,11 +95,16 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
           )}
         </div>
       </div>
-      <div className="flex flex-col justify-center text-center py-5 ">
-        <h1>{player.name}는 얼마나 잘하는 선수일까?</h1>
+      <div className="flex flex-col justify-center text-center py-5 text-sm tablet:text-xl">
+        <p>{player.name}는 얼마나 잘하는 선수일까?</p>
       </div>
-      <div className="flex justify-center content-center">
-        <iframe src={player.playerVideo} width="600" height="360" />
+      <div className="flex justify-center align-middle">
+        <iframe
+          src={player.playerVideo}
+          width="440"
+          height="300"
+          allowFullScreen
+        />
       </div>
     </Layout>
   );
