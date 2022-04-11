@@ -25,7 +25,7 @@ const Home: NextPage<IProps> = ({ players }) => {
     <Layout title="MLB Top 100 FA Players">
       <Head>
         <title>MLB | Top 100</title>
-        <meta name="description" content="MLB Top100 FA Players" />
+        <meta name="description" content="MLB Top 100 FA Players" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-center items-center">

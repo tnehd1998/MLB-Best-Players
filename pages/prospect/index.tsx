@@ -23,8 +23,8 @@ const ProspectPage: NextPage<IProps> = ({ players }) => {
   return (
     <Layout title="Top Players Before FA">
       <Head>
-        <title>MLB | Prospect</title>
-        <meta name="description" content="MLB Prospect Players" />
+        <title>MLB | Prospects</title>
+        <meta name="description" content="MLB Prospects" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-center items-center">
