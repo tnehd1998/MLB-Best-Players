@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import Layout from "../components/Layout";
 import Loading from "../components/Loading";
-import PlayerDescription from "../components/PlayerDescription";
+import Player from "../components/Player";
 import PlayerVideo from "../components/PlayerVideo";
 import { getCertainProspectPlayer, getCertainTopPlayer } from "../lib/players";
 
@@ -38,7 +38,7 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
         <meta name="description" content={`Information about ${player.name}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PlayerDescription player={player} />
+      <Player player={player} />
       <PlayerVideo name={player.name} playerVideo={player.playerVideo} />
     </Layout>
   );
@@ -51,6 +51,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const player =
       (await getCertainTopPlayer(playerName)) ??
       (await getCertainProspectPlayer(playerName));
+
     return {
       props: { player },
     };
