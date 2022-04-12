@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { isLikePlayer } from "../lib/like";
 import GoBackButton from "./GoBackButton";
+import LayoutHeader from "./LayoutHeader";
 import LayoutMenu from "./LayoutMenu";
 import LikeButton from "./LikeButton";
 import RemoveAllButton from "./RemoveAllButton";
@@ -21,30 +22,13 @@ const Layout = ({ title, goBackBtn, removeAll, children }: IProps) => {
 
   return (
     <div>
-      <header className="bg-white w-full h-24 justify-center px-10 font-medium fixed text-gray-700 border-b top-0 flex items-center z-50 text-xl tablet:text-3xl">
-        {goBackBtn && (
-          <>
-            <GoBackButton />
-            {isLikedPlayer ? (
-              <LikeButton
-                title={title}
-                isLikedPlayer={isLikedPlayer}
-                setIsLikedPlayer={setIsLikedPlayer}
-                isLiked={true}
-              />
-            ) : (
-              <LikeButton
-                title={title}
-                isLikedPlayer={isLikedPlayer}
-                setIsLikedPlayer={setIsLikedPlayer}
-                isLiked={false}
-              />
-            )}
-          </>
-        )}
-        <span>{title}</span>
-        {removeAll && <RemoveAllButton />}
-      </header>
+      <LayoutHeader
+        goBackBtn={goBackBtn}
+        isLikedPlayer={isLikedPlayer}
+        title={title}
+        setIsLikedPlayer={setIsLikedPlayer}
+        removeAll={removeAll}
+      />
       <main className="py-28">{children}</main>
       <nav className="bg-white text-gray-700 border-t h-24 fixed bottom-0 w-full px-10 pb-5 pt-3 flex justify-evenly text-xs">
         <LayoutMenu routingPath="/" menuType="Top 100">
