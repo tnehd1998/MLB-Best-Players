@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import PlayerInfo from "./PlayerInfo";
 
 interface IPlayerData {
   name: string;
@@ -43,42 +44,26 @@ const PlayerDescription = ({ player }: IProps) => {
         />
       </div>
       <div className="text-left flex flex-col justify-evenly">
-        <p className="border-b-2 border-b-slate-400">이름 : {player.name}</p>
-        <p className="border-b-2 border-b-slate-400">소속 팀 : {player.team}</p>
-        <p className="border-b-2 border-b-slate-400">
-          포지션 : {player.position}
-        </p>
+        <PlayerInfo content={`이름 : ${player.name}`} />
+        <PlayerInfo content={`소속 팀 : ${player.team}`} />
+        <PlayerInfo content={`포지션 : ${player.position}`} />
         {player.SignedAge ? (
           <>
-            <p className="border-b-2 border-b-slate-400">
-              계약 당시 나이 : {player.SignedAge}
-            </p>
-            <p className="border-b-2 border-b-slate-400">
-              계약 기간 : {player.years}
-            </p>
-            <p className="border-b-2 border-b-slate-400">
-              계약 년도 : {player.period}
-            </p>
-            <p className="border-b-2 border-b-slate-400">
-              연평균 금액 : {player.averageValue}
-            </p>
-            <p className="border-b-2 border-b-slate-400">
-              계약 금액 : {player.totalValue}
-            </p>
-            {player.averageValue && (
-              <p className="border-b-2 border-b-slate-400">
-                한 경기당 금액 : {salaryPerGame(player.averageValue)}
-              </p>
-            )}
+            <PlayerInfo content={`계약 당시 나이 : ${player.SignedAge}`} />
+            <PlayerInfo content={`계약 기간 : ${player.years}`} />
+            <PlayerInfo content={`계약 년도 : ${player.period}`} />
+            <PlayerInfo content={`연평균 금액 : ${player.averageValue}`} />
+            <PlayerInfo content={`계약 금액 : ${player.totalValue}`} />
+            <PlayerInfo
+              content={`한 경기당 금액 : ${salaryPerGame(
+                player.averageValue!
+              )}`}
+            />
           </>
         ) : (
           <>
-            <p className="border-b-2 border-b-slate-400">
-              현재 나이 : {player.currentAge}
-            </p>
-            <p className="border-b-2 border-b-slate-400">
-              FA까지 남은 기간 : {player.leftYear}년
-            </p>
+            <PlayerInfo content={`현재 나이 : ${player.currentAge}`} />
+            <PlayerInfo content={`FA까지 남은 기간 : ${player.leftYear}년`} />
           </>
         )}
       </div>
