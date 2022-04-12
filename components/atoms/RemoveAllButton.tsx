@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteAllLikePlayers } from "../lib/like";
+import { deleteAllLikePlayers } from "../../lib/like";
 
 const RemoveAllButton = () => {
   const onClickDeleteAll = () => {

@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import React, { useState } from "react";
-import Layout from "../../components/Layout";
-import PlayerList from "../../components/PlayerList";
+import Layout from "../../components/organisms/Layout";
+import PlayerList from "../../components/templates/PlayerList";
 import { getAwardWinnerPlayer } from "../../lib/players";
 
 interface IPlayerData {

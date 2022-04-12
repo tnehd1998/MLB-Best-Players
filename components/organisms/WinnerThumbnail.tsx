@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
-import PlayerThumbnail from "./PlayerThumbnail";
-import ToggleYearButton from "./ToggleYearButton";
+import PlayerThumbnail from "../molecules/PlayerThumbnail";
+import ToggleYearButton from "../atoms/ToggleYearButton";
 
 interface IPlayerData {
   name: string;

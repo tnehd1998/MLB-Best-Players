@@ -1,5 +1,5 @@
 import React from "react";
-import PlayerInfo from "./PlayerInfo";
+import PlayerInfo from "../atoms/PlayerInfo";
 
 interface IPlayerData {
   name: string;

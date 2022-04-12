@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { toggleLikePlayer } from "../lib/like";
+import { toggleLikePlayer } from "../../lib/like";
 
 interface IProps {
   title: string;

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
-import RegularThumbnail from "./RegularThumbnail";
-import WinnerThumbnail from "./WinnerThumbnail";
+import RegularThumbnail from "../organisms/RegularThumbnail";
+import WinnerThumbnail from "../organisms/WinnerThumbnail";
 
 interface IPlayerData {
   name: string;

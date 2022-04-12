@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import Layout from "../components/Layout";
-import Loading from "../components/Loading";
-import Player from "../components/Player";
-import PlayerVideo from "../components/PlayerVideo";
+import Layout from "../components/organisms/Layout";
+import Loading from "../components/atoms/Loading";
+import Player from "../components/templates/Player";
+import PlayerVideo from "../components/organisms/PlayerVideo";
 import { getCertainProspectPlayer, getCertainTopPlayer } from "../lib/players";
 
 interface IPlayerData {

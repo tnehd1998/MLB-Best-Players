@@ -1,8 +1,8 @@
 import axios from "axios";
 import { NextPage } from "next";
 import Head from "next/head";
-import Layout from "../components/Layout";
-import PlayerList from "../components/PlayerList";
+import Layout from "../components/organisms/Layout";
+import PlayerList from "../components/templates/PlayerList";
 
 interface IPlayerData {
   name: string;
