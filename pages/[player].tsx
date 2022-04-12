@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 import Layout from "../components/Layout";
+import Loading from "../components/Loading";
 import PlayerDescription from "../components/PlayerDescription";
 import PlayerVideo from "../components/PlayerVideo";
 import { getCertainProspectPlayer, getCertainTopPlayer } from "../lib/players";
@@ -27,7 +28,7 @@ interface IProps {
 
 const PlayerPage: NextPage<IProps> = ({ player }) => {
   if (!player) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

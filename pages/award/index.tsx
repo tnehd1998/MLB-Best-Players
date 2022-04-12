@@ -39,16 +39,19 @@ const WinnerPage: NextPage<IProps> = ({
           players={MVPPlayers}
           winnerState={mvpYear}
           winnerSetState={setMvpYear}
+          winnerTitle="MVP"
         />
         <PlayerList
           players={CYYoungPlayers}
           winnerState={cyYoungYear}
           winnerSetState={setCyYoungYearYear}
+          winnerTitle="Cy Young"
         />
         <PlayerList
           players={ROYPlayers}
           winnerState={royYear}
           winnerSetState={setRoyYear}
+          winnerTitle="Rookie of the Year"
         />
       </main>
     </Layout>

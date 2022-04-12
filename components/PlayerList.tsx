@@ -22,9 +22,15 @@ interface IProps {
   players: IPlayerData[];
   winnerState?: number;
   winnerSetState?: Dispatch<SetStateAction<number>>;
+  winnerTitle?: string;
 }
 
-const PlayerList = ({ players, winnerState, winnerSetState }: IProps) => {
+const PlayerList = ({
+  players,
+  winnerState,
+  winnerSetState,
+  winnerTitle,
+}: IProps) => {
   const onClickDecrease = (
     state: number,
     setState: Dispatch<SetStateAction<number>>
@@ -78,7 +84,7 @@ const PlayerList = ({ players, winnerState, winnerSetState }: IProps) => {
                     name={player.name}
                     year={player.year}
                     league={player.league}
-                    awardType="MVP"
+                    awardType={winnerTitle}
                   />
                 )
               );
