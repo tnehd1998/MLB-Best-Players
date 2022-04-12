@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import PlayerDescription from "./PlayerDescription";
-import PlayerInfo from "./PlayerInfo";
 
 interface IPlayerData {
   name: string;
@@ -23,15 +22,8 @@ interface IProps {
 }
 
 const Player = ({ player }: IProps) => {
-  const salaryPerGame = (money: string) => {
-    const moneyToNumber = Number(money.replace(/[^0-9.-]+/g, ""));
-    const perGame = Math.round(moneyToNumber / 162);
-
-    return "$" + perGame.toLocaleString();
-  };
-
   return (
-    <main className="flex justify-center mx-3 p-2 rounded-lg text-sm tablet:text-xl">
+    <>
       <div className="mr-4">
         <Image
           src={player.playerImg}
@@ -41,7 +33,7 @@ const Player = ({ player }: IProps) => {
         />
       </div>
       <PlayerDescription player={player} />
-    </main>
+    </>
   );
 };
 

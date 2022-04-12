@@ -38,7 +38,9 @@ const PlayerPage: NextPage<IProps> = ({ player }) => {
         <meta name="description" content={`Information about ${player.name}`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Player player={player} />
+      <main className="flex justify-center mx-3 p-2 rounded-lg text-sm tablet:text-xl">
+        <Player player={player} />
+      </main>
       <PlayerVideo name={player.name} playerVideo={player.playerVideo} />
     </Layout>
   );
