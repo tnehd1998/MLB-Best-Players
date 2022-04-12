@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import PlayerThumbnail from "./PlayerThumbnail";
-import WinnerButton from "./WinnerButton";
+import ToggleYearButton from "./ToggleYearButton";
 
 interface IPlayerData {
   name: string;
@@ -32,29 +32,9 @@ const WinnerThumbnail = ({
   winnerSetState,
   winnerTitle,
 }: IProps) => {
-  const onClickDecrease = (
-    state: number,
-    setState: Dispatch<SetStateAction<number>>
-  ) => {
-    if (state === 2017) {
-      return;
-    }
-    return setState((year: number) => year - 1);
-  };
-
-  const onClickIncrease = (
-    state: number,
-    setState: Dispatch<SetStateAction<number>>
-  ) => {
-    if (state === 2021) {
-      return;
-    }
-    return setState((year: number) => year + 1);
-  };
-
   return (
     <div className="flex justify-center items-center border-b-[1px] p-10">
-      <WinnerButton
+      <ToggleYearButton
         buttonType="decrement"
         winnerState={winnerState}
         winnerSetState={winnerSetState}
@@ -75,7 +55,7 @@ const WinnerThumbnail = ({
           );
         })}
       </ul>
-      <WinnerButton
+      <ToggleYearButton
         buttonType="increment"
         winnerState={winnerState}
         winnerSetState={winnerSetState}
