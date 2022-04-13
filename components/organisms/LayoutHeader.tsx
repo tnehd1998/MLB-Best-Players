@@ -1,7 +1,7 @@
+import GoBackButton from "components/atoms/GoBackButton";
+import LikeButton from "components/atoms/LikeButton";
+import RemoveAllButton from "components/atoms/RemoveAllButton";
 import React, { Dispatch, SetStateAction } from "react";
-import GoBackButton from "../atoms/GoBackButton";
-import LikeButton from "../atoms/LikeButton";
-import RemoveAllButton from "../atoms/RemoveAllButton";
 
 interface IProps {
   goBackBtn?: boolean;

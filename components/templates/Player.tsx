@@ -1,6 +1,6 @@
+import PlayerDescription from "components/molecules/PlayerDescription";
 import Image from "next/image";
 import React from "react";
-import PlayerDescription from "../molecules/PlayerDescription";
 
 interface IPlayerData {
   name: string;

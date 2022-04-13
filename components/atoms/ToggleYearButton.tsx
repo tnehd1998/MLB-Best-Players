@@ -8,7 +8,11 @@ interface IProps {
   winnerSetState: Dispatch<SetStateAction<number>>;
 }
 
-const WinnerButton = ({ buttonType, winnerState, winnerSetState }: IProps) => {
+const ToggleYearButton = ({
+  buttonType,
+  winnerState,
+  winnerSetState,
+}: IProps) => {
   const onClickButton = (
     buttonType: string,
     state: number,
@@ -69,4 +73,4 @@ const WinnerButton = ({ buttonType, winnerState, winnerSetState }: IProps) => {
   );
 };
 
-export default WinnerButton;
+export default ToggleYearButton;

@@ -1,5 +1,5 @@
+import LayoutMenu from "components/molecules/LayoutMenu";
 import React from "react";
-import LayoutMenu from "../molecules/LayoutMenu";
 
 const LayoutMenus = () => {
   return (

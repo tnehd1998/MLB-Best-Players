@@ -1,11 +1,11 @@
+import Loading from "components/atoms/Loading";
+import Layout from "components/organisms/Layout";
+import PlayerVideo from "components/organisms/PlayerVideo";
+import Player from "components/templates/Player";
+import { getCertainProspectPlayer, getCertainTopPlayer } from "lib/players";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import Layout from "../components/organisms/Layout";
-import Loading from "../components/atoms/Loading";
-import Player from "../components/templates/Player";
-import PlayerVideo from "../components/organisms/PlayerVideo";
-import { getCertainProspectPlayer, getCertainTopPlayer } from "../lib/players";
 
 interface IPlayerData {
   name: string;

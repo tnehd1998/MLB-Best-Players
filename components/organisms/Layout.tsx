@@ -1,5 +1,5 @@
+import { isLikePlayer } from "lib/like";
 import React, { useEffect, useState } from "react";
-import { isLikePlayer } from "../../lib/like";
 import LayoutHeader from "./LayoutHeader";
 import LayoutMenus from "./LayoutMenus";
 

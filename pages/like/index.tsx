@@ -1,9 +1,9 @@
-import { NextPage } from "next";
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import Layout from "../../components/organisms/Layout";
-import PlayerList from "../../components/templates/PlayerList";
-import { getLikePlayers } from "../../lib/like";
+import Head from "next/head";
+import Layout from "components/organisms/Layout";
+import PlayerList from "components/templates/PlayerList";
+import { getLikePlayers } from "lib/like";
+import { NextPage } from "next";
 
 interface IPlayerData {
   name: string;

@@ -1,5 +1,5 @@
+import PlayerThumbnail from "components/molecules/PlayerThumbnail";
 import React from "react";
-import PlayerThumbnail from "../molecules/PlayerThumbnail";
 
 interface IPlayerData {
   name: string;

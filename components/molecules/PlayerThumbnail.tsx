@@ -1,7 +1,7 @@
+import { combinedName } from "lib/players";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { combinedName } from "../../lib/players";
 
 interface IProps {
   playerImg: string;
