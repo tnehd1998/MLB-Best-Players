@@ -1,4 +1,3 @@
-import axios from "axios";
 import { getAllProspectPlayers } from "lib/players";
 import { NextPage } from "next";
 import Head from "next/head";
