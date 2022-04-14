@@ -1,6 +1,6 @@
-import axios from "axios";
 import Layout from "components/organisms/Layout";
 import PlayerList from "components/templates/PlayerList";
+import { getAllTopPlayers } from "lib/players";
 import { NextPage } from "next";
 import Head from "next/head";
 
@@ -36,8 +36,7 @@ const Home: NextPage<IProps> = ({ players }) => {
 };
 
 export async function getStaticProps() {
-  const response = await axios("http://localhost:3000/api/ranking");
-  const players = response.data;
+  const players = await getAllTopPlayers();
 
   return {
     props: {
