@@ -2,7 +2,9 @@
 const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig = {
-  assetPrefix: isProd ? "127.0.0.1:80" : "http://localhost:3000",
+  assetPrefix: isProd
+    ? process.env.NEXT_APP_BASE_URL
+    : "http://localhost:3000/api",
   reactStrictMode: true,
   images: {
     domains: ["d1dglpr230r57l.cloudfront.net"],

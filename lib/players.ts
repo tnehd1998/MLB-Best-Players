@@ -18,7 +18,7 @@ export const combinedName = (name: string) => {
 };
 
 export const getAllTopPlayers = async () => {
-  const response = await axios(`${assetPrefix}/api/ranking`);
+  const response = await axios(`${assetPrefix}/ranking`);
   return response.data;
 };
 
@@ -34,7 +34,7 @@ export const getCertainTopPlayer = async (playerName: string) => {
 };
 
 export const getAllProspectPlayers = async () => {
-  const response = await axios(`${assetPrefix}/api/prospect`);
+  const response = await axios(`${assetPrefix}/prospect`);
   return response.data;
 };
 
@@ -59,7 +59,7 @@ export const addPlayerToLikePage = async (playerName: string) => {
 };
 
 export const getAwardWinnerPlayer = async (playerType: string) => {
-  const response = await axios(`${assetPrefix}/api/winner/${playerType}`);
+  const response = await axios(`${assetPrefix}/winner/${playerType}`);
   return response.data;
 };
 

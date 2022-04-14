@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getAllProspectPlayers } from "lib/players";
 import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
@@ -35,8 +36,7 @@ const ProspectPage: NextPage<IProps> = ({ players }) => {
 };
 
 export async function getStaticProps() {
-  const response = await axios("http://localhost:3000/api/prospect");
-  const players = response.data;
+  const players = await getAllProspectPlayers();
 
   return {
     props: {
