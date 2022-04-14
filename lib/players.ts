@@ -1,4 +1,5 @@
 import axios from "axios";
+import { assetPrefix } from "../next.config";
 
 interface IPlayerData {
   name: string;
@@ -17,7 +18,7 @@ export const combinedName = (name: string) => {
 };
 
 export const getAllTopPlayers = async () => {
-  const response = await axios("http://localhost:3000/api/ranking");
+  const response = await axios(`${assetPrefix}/api/ranking`);
   return response.data;
 };
 
@@ -33,7 +34,7 @@ export const getCertainTopPlayer = async (playerName: string) => {
 };
 
 export const getAllProspectPlayers = async () => {
-  const response = await axios("http://localhost:3000/api/prospect");
+  const response = await axios(`${assetPrefix}/api/prospect`);
   return response.data;
 };
 
@@ -58,9 +59,7 @@ export const addPlayerToLikePage = async (playerName: string) => {
 };
 
 export const getAwardWinnerPlayer = async (playerType: string) => {
-  const response = await axios(
-    `http://localhost:3000/api/winner/${playerType}`
-  );
+  const response = await axios(`${assetPrefix}/api/winner/${playerType}`);
   return response.data;
 };
 
