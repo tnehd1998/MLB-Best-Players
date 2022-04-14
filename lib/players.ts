@@ -19,9 +19,12 @@ export const combinedName = (name: string) => {
 };
 
 export const getAllTopPlayers = async () => {
-  const response = await axios(`${baseUrl}/ranking`);
-
-  return response.data;
+  try {
+    const response = await axios(`${baseUrl}/ranking`);
+    return response.data;
+  } catch (error) {
+    return console.log(error);
+  }
 };
 
 export const getCertainTopPlayer = async (playerName: string) => {

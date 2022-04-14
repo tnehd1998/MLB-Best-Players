@@ -50,6 +50,11 @@ const deleteLikePlayer = (playerName: string) => {
 
 export const isLikePlayer = (playerName: string) => {
   const existingPlayers = localStorage.getItem("mlb-best-players");
+
+  if (!existingPlayers) {
+    return;
+  }
+
   const parsedExistingPlayers = JSON.parse(existingPlayers || "");
 
   const existingPlayer = parsedExistingPlayers.find(
@@ -65,6 +70,11 @@ export const toggleLikePlayer = (title: string) => {
 
 export const getLikePlayers = () => {
   const existingPlayers = localStorage.getItem("mlb-best-players");
+
+  if (!existingPlayers) {
+    return;
+  }
+
   const parsedExistingPlayers = JSON.parse(existingPlayers || "");
 
   return parsedExistingPlayers;
