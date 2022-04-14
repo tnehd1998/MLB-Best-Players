@@ -63,3 +63,19 @@ export const getAwardWinnerPlayer = async (playerType: string) => {
   );
   return response.data;
 };
+
+export const getAllPlayerPath = async () => {
+  const allTopPlayers = await getAllTopPlayers();
+  const allProspectPlayers = await getAllProspectPlayers();
+
+  const allTopPlayersPath = allTopPlayers.map((player: IPlayerData) => {
+    return { params: { player: combinedName(player.name).toString() } };
+  });
+  const allProspectPlayersPath = allProspectPlayers.map(
+    (player: IPlayerData) => {
+      return { params: { player: combinedName(player.name).toString() } };
+    }
+  );
+
+  return [...allTopPlayersPath, ...allProspectPlayersPath];
+};

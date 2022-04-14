@@ -32,6 +32,7 @@ const PlayerThumbnail = ({
             src={playerImg}
             width={200}
             height={320}
+            alt={name}
           />
           <p className="border-black h-10 text-center text-sm font-light leading-5 tablet:text-lg">
             {name}

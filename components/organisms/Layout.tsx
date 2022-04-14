@@ -15,7 +15,7 @@ const Layout = ({ title, goBackBtn, removeAll, children }: IProps) => {
 
   useEffect(() => {
     isLikePlayer(title) && setIsLikedPlayer(true);
-  }, []);
+  }, [title]);
 
   return (
     <div>

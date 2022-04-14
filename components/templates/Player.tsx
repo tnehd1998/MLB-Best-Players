@@ -30,6 +30,7 @@ const Player = ({ player }: IProps) => {
           className="p-12 border border-slate-700 border-solid rounded-xl"
           width={200}
           height={300}
+          alt={player.name}
         />
       </div>
       <PlayerDescription player={player} />
