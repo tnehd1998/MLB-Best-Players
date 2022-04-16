@@ -30,7 +30,7 @@ const WinnerPage: NextPage<IProps> = ({
   return (
     <Layout title="Award Winners">
       <Head>
-        <title>MLB | Award Winners</title>
+        <title>MLB | Award</title>
         <meta name="description" content="MLB Award Winners" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

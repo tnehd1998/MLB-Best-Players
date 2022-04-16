@@ -23,7 +23,7 @@ const ProspectPage: NextPage<IProps> = ({ players }) => {
   return (
     <Layout title="Top Players Before FA">
       <Head>
-        <title>MLB | Prospects</title>
+        <title>MLB | Prospect</title>
         <meta name="description" content="MLB Prospects" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
