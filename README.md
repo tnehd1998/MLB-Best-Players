@@ -1,21 +1,30 @@
-# MLB SuperStars
+<p align="middle" >
+  <img width="300px;" src="https://user-images.githubusercontent.com/72953316/164909070-e3906376-99b7-422f-beab-7dc73df5bf23.jpeg" alt="mlb superstars"/>
 
-### 📌 프로젝트를 제작하게 된 계기
+</p>
 
-- Mobile First Design을 기반으로 편하게 유명한 MLB 선수들을 확인하는 프로그램
+</br>
 
-### 📌 사용한 기술 및 언어
+## 🎤 프로젝트 소개
 
-사용 기술 목록
+Mobile First Design을 기반으로 편하게 유명 MLB 선수들을 확인하는 프로그램
+
+</br>
+
+## 🧩 프로젝트 사용 과정
+
+[MLB SuperStars](https://mlb-super-stars.vercel.app/)를 통해 프로젝트를 직접 사용해보거나,
+
+[MLB SuperStars 작동 과정](https://github.com/tnehd1998/MLB-SuperStars/wiki)을 통해 동작 화면을 확인할 수 있습니다.
+
+</br>
+
+## 🛠 사용 기술
 
 - React
+- TypeScript
 - Next.js
 - Recoil
-- TailwindCSS
+- tailwindCSS
 
-사용한 언어 : TypeScript
-
-### 📌 수정 및 추가 예정 기술 및 언어 목록
-
-- Storybook
-- PWA
+</br>
